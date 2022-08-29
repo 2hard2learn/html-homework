@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            const product = [{
+            "id": "1",
+            "name": "XL2546",
+            "price": "฿16,900",
+            "img": "xl2546.jpg"
+        }, {
+            "id": "2",
+            "name": "XL2546k",
+            "price": "฿18,900",
+            "img": "xl2546k.jpg"
+        }, {
+            "id": "3",
+            "name": "RL2460",
+            "price": "฿7,690",
+            "img": "rl2460.jpg"
+        }, {
+            "id": "4",
+            "name": "EC-A",
+            "price": "฿2,790",
+            "img": "EC1.jpg"
+        }, {
+            "id": "5",
+            "name": "FK1",
+            "price": "฿2,490",
+            "img": "fk1.jpg"
+        }, {
+            "id": "6",
+            "name": "ZA13",
+            "price": "฿2,490",
+            "img": "za13.jpg"
+        }, {
+            "id": "7",
+            "name": "S1",
+            "price": "฿1,490",
+            "img": "S1.jpg"
+        }, {
+            "id": "8",
+            "name": "GSR",
+            "price": "฿1,390",
+            "img": "gsr.jpg"
+        }, {
+            "id": "9",
+            "name": "Camade II",
+            "price": "฿1,290",
+            "img": "camade.jpg"
+        }, {
+            "id": "10",
+            "name": "Vital 2.1",
+            "price": "฿7,590",
+            "img": "vital.jpg"
+        }];
+
+        let pro_tb = "";
+        let isAgain = false;
+        let isShow = false;
+
+        function toShowTables() {
+            isShow = !isShow;
+            if (isShow) {
+                if (isAgain) {
+                    document.getElementById("product_table").style.display = "block";
+                } else {
+                    pro_tb += "<table>";
+                    pro_tb += "<tr>" +
+                        "<th>" + "Number" + "</th>" +
+                        "<th>" + "Name" + "</th>" +
+                        "<th>" + "Price" + "</th>" +
+                        "<th>" + "Image" + "</th>" +
+                        "</tr>";
+                    product.forEach(showTables);
+                    pro_tb += "</table>";
+                    document.getElementById('product_table').innerHTML = pro_tb;
+                    isAgain = !isAgain;
+                }
+
+            } else {
+                document.getElementById('product_table').style.display = "none";
+            }
+        }
+
+        function showTables(value) {
+            pro_tb += "<tr>";
+            pro_tb += "<td>" + value.id + "</td>";
+            pro_tb += "<td>" + value.name + "</td>";
+            pro_tb += "<td>" + value.price + "</td>";
+            pro_tb += "<td>" + '<img src="' + value.img + '"alt="' + value.img + '">' + "</td>";
+            pro_tb += "</tr>";
+        }
+        </script>
+        <style>
+            h1{
+                color:purple;
+            }
+            img {
+                width: 150px;
+                height: auto;
+            }
+            p{
+                font-weight: bolder;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Benq Shop list</h1>
+        <img src="zowie-logo.jpg"><br>
+        <p>Press Button below to show or hide shopping list</p>
+        <button type="button" class="button" onclick="toShowTables()">
+        Show / Hide
+        </button>
+        <div id="content">
+        <div id="product_table"></div>
+    </div>
+    </body>
+</html>
